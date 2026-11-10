@@ -1446,10 +1446,8 @@ function updateOrderHint() {
   if (!hint) return;
   const idx = recipes.findIndex(x => x.id === id);
   if (idx < 0) { hint.textContent = ''; return; }
-  let tail = '· 第一次移动时选中这个 HTML 文件，之后会自动写进代码';
-  if (orderFileState === 'ok') tail = '· 已自动写进 HTML 的 RECIPE_ORDER';
   if (orderFileState === 'blocked') tail = '· 浏览器不让网页改本地文件，这次改动刷新会还原';
-  hint.textContent = '第 ' + (idx + 1) + ' 道（共 ' + recipes.length + ' 道）' + tail;
+  hint.textContent = '第 ' + (idx + 1) + ' 道（共 ' + recipes.length + ' 道）';
 }
 
 // 把上次选过的文件句柄存进 IndexedDB，下次打开直接复用，不再弹文件选择框
